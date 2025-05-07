@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Options;
+using Rentio.Lib.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+builder.Services.AddScoped<CreditCardValidator>();
 
 var app = builder.Build();
 

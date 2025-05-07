@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio", "Rentio\Rentio.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio.Lib", "Rentio.Lib\Rentio.Lib.csproj", "{456B92A2-C1CE-47D0-B939-48DA4DF93A66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio.Tests", "Rentio.Tests\Rentio.Tests.csproj", "{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio.Lib.Tests", "Rentio.Lib.Tests\Rentio.Lib.Tests.csproj", "{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

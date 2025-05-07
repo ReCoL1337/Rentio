@@ -15,4 +15,8 @@
       <None Remove=".gitignore" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Rentio.Lib\Rentio.Lib.csproj" />
+    </ItemGroup>
+
 </Project>

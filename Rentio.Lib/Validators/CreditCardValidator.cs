@@ -1,9 +1,21 @@
-﻿namespace Rentio.Lib;
-
+﻿using Rentio.Lib.Exceptions.CreditCard;
 using System.Text.RegularExpressions;
 
+namespace Rentio.Lib.Validators;
+
 public class CreditCardValidator {
-    public Boolean ValidateCardNumber(string cardNumber) {
+
+    public Boolean ValidateCardNumber(string cardNumber)
+    {
+        if(cardNumber.Length < 13)
+        {
+            throw new CardNumberTooShortException();
+        }
+        if (cardNumber.Length > 19)
+        {
+            throw new CardNumberTooLongException();
+        }
+
         cardNumber = cardNumber.Replace(" ", "").Replace("-", "");
         if (!cardNumber.All(char.IsDigit))
             return false;
@@ -11,10 +23,12 @@ public class CreditCardValidator {
         int sum = 0;
         bool alternate = false;
 
-        for (int i = cardNumber.Length - 1; i >= 0; i--) {
+        for (int i = cardNumber.Length - 1; i >= 0; i--)
+        {
             int digit = cardNumber[i] - '0';
 
-            if (alternate) {
+            if (alternate)
+            {
                 digit *= 2;
                 if (digit > 9)
                     digit -= 9;
@@ -26,7 +40,6 @@ public class CreditCardValidator {
 
         return (sum % 10 == 0);
     }
-
     public string GetCardType(string cardNumber) {
         cardNumber = cardNumber.Replace(" ", "").Replace("-", "");
 
@@ -53,6 +66,6 @@ public class CreditCardValidator {
         if (Regex.IsMatch(cardNumber, @"^(50|5[6-9]|6\d)\d{10,17}$"))
             return "Maestro";
 
-        return "Unknown";
+        throw new CardInvalidNumberException();
     }
 }

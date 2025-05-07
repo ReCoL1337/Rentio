@@ -1,46 +1,41 @@
 namespace Rentio.Tests;
 
-using Rentio.Lib;
+using Rentio.Lib.Validators;
+using Rentio.Lib.Exceptions.CreditCard;
 
 public class CreditCardValidatorTest {
     [Fact]
-    public void ValidateCard_CheckCardToShortLength_ReturnFalse() {
-        // Arrange
-        var creditCardService = new CreditCardValidator();
-        string cardNumber = "1212";
-
-        // Act
-        var result = creditCardService.ValidateCardNumber(cardNumber);
-
-        // Assert
-        Assert.False(result);
-    }
-
-
-    [Fact]
     public void ValidateCard_CheckCardCorrectLength_ReturnTrue() {
         // Arrange
-        var creditCardService = new CreditCardValidator();
+        var creditCardValidator = new CreditCardValidator();
         string cardNumber = "349779658312797";
 
         // Act
-        var result = creditCardService.ValidateCardNumber(cardNumber);
+        var result = creditCardValidator.ValidateCardNumber(cardNumber);
 
         // Assert
         Assert.True(result);
     }
 
+
     [Fact]
-    public void ValidateCard_CheckCardToLongLength_ReturnFalse() {
+    public void ValidateCard_CheckExceptionsTooShortNumber_ReturnTrue() {
         // Arrange
         var creditCardService = new CreditCardValidator();
-        string cardNumber = "349779658312797349779658312797";
+        string cardNumber = "1212";
 
-        // Act
-        var result = creditCardService.ValidateCardNumber(cardNumber);
+        // Act && Assert
+        Assert.Throws<CardNumberTooShortException>(() => creditCardService.ValidateCardNumber(cardNumber));
+    }
 
-        // Assert
-        Assert.False(result);
+    [Fact]
+    public void ValidateCard_CheckExceptionsTooLongNumber_ReturnTrue() {
+        // Arrange
+        var creditCardService = new CreditCardValidator();
+        string cardNumber = "3497 7965 8312 797 3497 7965 8312 797";
+
+        // Act && Assert
+        Assert.Throws<CardNumberTooLongException>(() => creditCardService.ValidateCardNumber(cardNumber));
     }
 
     [Theory]
@@ -74,7 +69,6 @@ public class CreditCardValidatorTest {
     [InlineData("5530016454538418", "MasterCard")]
     [InlineData("5551561443896215", "MasterCard")]
     [InlineData("5131208517986691", "MasterCard")]
-    [InlineData("", "Unknown")]
     public void ValidateCard_CheckGetCardType_ReturnTrue(string cardNumber, string cardType) {
         // Arrange
         var creditCardService = new CreditCardValidator();
@@ -84,5 +78,15 @@ public class CreditCardValidatorTest {
 
         // Assert
         Assert.Equal(result, cardType);
+    }
+
+    [Fact]
+    public void ValidateCard_CardNumberInvalidException_ReturnTrue() {
+        // Arrange
+        var creditCardService = new CreditCardValidator();
+        string cardNumber = "0000-0000-0000-0000";
+
+        // Act && Assert
+        Assert.Throws<CardInvalidNumberException>(() => creditCardService.GetCardType(cardNumber));
     }
 }
