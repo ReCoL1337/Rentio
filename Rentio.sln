@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio", "Rentio\Rentio.csproj", "{2642923F-6D13-47A9-A133-2ACE601456E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio.Lib", "Rentio.Lib\Rentio.Lib.csproj", "{456B92A2-C1CE-47D0-B939-48DA4DF93A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentio.Tests", "Rentio.Tests\Rentio.Tests.csproj", "{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{2642923F-6D13-47A9-A133-2ACE601456E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2642923F-6D13-47A9-A133-2ACE601456E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2642923F-6D13-47A9-A133-2ACE601456E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456B92A2-C1CE-47D0-B939-48DA4DF93A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456B92A2-C1CE-47D0-B939-48DA4DF93A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456B92A2-C1CE-47D0-B939-48DA4DF93A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456B92A2-C1CE-47D0-B939-48DA4DF93A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEC5A16-2B3E-4580-BB2E-E3E5FB3CC05A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
